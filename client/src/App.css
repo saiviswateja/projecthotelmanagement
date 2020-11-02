@@ -1,0 +1,15 @@
+#home{
+  background-color: cornsilk;
+}
+
+h1 {
+  color: yellowgreen;
+  padding: 20px;
+  text-align: center;
+}
+
+.h3, h3 {
+  font-size: 1.75rem;
+  color: slateblue;
+  line-height: 150%;
+}

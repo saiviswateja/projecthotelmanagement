@@ -2,6 +2,7 @@ const BoardOfDirector = require("../models/BoardOfDirector");
 const jwt = require('jsonwebtoken');
 
 exports.loginBod = (req,res)=>{
+    console.log(req.body)
     const {email,password} = req.body;
     if(!email || !password){
         return res.status(422).json({
@@ -22,6 +23,6 @@ exports.loginBod = (req,res)=>{
                 bod.password = undefined
                 return res.send({token,user:bod});
         }
-        return res.send("Invalid credentials")
+        return res.status(403).json({error:"Invalid credentials"});
     })
 }
