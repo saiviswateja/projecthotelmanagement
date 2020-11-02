@@ -8,4 +8,5 @@ Router.post('/delete',authBod,deleteManager);
 Router.get('/manager',authBod,getManagers);
 Router.post('/signin',loginManager);
 
+
 module.exports = Router;

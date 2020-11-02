@@ -28,3 +28,17 @@ exports.getRooms = (req,res)=>{
         return res.send(rooms);
     })
 }
+
+exports.deleteRoom = (req,res)=>{
+    console.log("came to delete room");
+    Room.deleteOne({_id:req.params.id},(err,room)=>{
+        if(err){
+            return res.status(400).json({
+                error:"error occured while deteling the room"
+            });
+        }
+        return res.json({
+            message:"Room deleted successfully"
+        })
+    });
+}
