@@ -23,8 +23,8 @@ class LoginManager extends Component{
         .then(response=>{
             if(response.data.token){
                 localStorage.setItem("token",response.data.token);
-                localStorage.setItem("bod",response.data.user);
-                window.location = "/"
+                localStorage.setItem("bod",JSON.stringify(response.data.user));
+                window.location = "/bod/home"
             }
             console.log(response.data);
         })
