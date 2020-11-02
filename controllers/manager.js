@@ -1,4 +1,28 @@
 const Manager = require('../models/Manager');
+const jwt = require('jsonwebtoken');
+
+exports.loginManager = (req,res)=>{
+    const {email,password} = req.body;
+    if(!email || !password){
+        return res.status(422).json({
+            error:"please enter the required fields"
+        });
+    }
+    Manager.findOne({email:email},(err,manager)=>{
+        if(err){
+            return res.status(400).json({
+                error:"no on eound with the specified email in the database"
+            });
+        }
+        if(manager)
+        if(manager.password==password && manager.email==email){
+                const token = jwt.sign({_id:manager._id},"secret");
+                manager.password = undefined
+                return res.send({token,user:manager});
+        }
+        return res.send("Invalid credentials")
+    })
+}
 
 exports.addManager = (req,res)=>{
     const managerFromSchema = new Manager(req.body);

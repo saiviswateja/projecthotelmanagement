@@ -14,7 +14,10 @@ exports.loginBod = (req,res)=>{
                 error:"error"
             });
         }
+        console.log(bod)
+        if(bod)
         if(bod.password==password && bod.email==email){
+                console.log("It enetred here bro");
                 const token = jwt.sign({_id:bod._id},"secret");
                 bod.password = undefined
                 return res.send({token,user:bod});
