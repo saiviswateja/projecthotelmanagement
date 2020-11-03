@@ -40,6 +40,7 @@ class LoginManager extends Component{
             <br>
             </br>
             <div className="jumbotron">
+                <h1>Board of Director Login</h1>
             <form>
                 <div className="form-group">
                     <label>Email Address</label>
