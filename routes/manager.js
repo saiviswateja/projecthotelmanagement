@@ -4,7 +4,7 @@ const {addManager,deleteManager, getManagers, loginManager} = require('../contro
 const Router = express.Router();
 
 Router.post('/add',authBod,addManager);
-Router.post('/delete',authBod,deleteManager);
+Router.delete('/delete/:id',authBod,deleteManager);
 Router.get('/manager',authBod,getManagers);
 Router.post('/signin',loginManager);
 

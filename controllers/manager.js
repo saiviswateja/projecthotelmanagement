@@ -50,7 +50,9 @@ exports.addManager = (req,res)=>{
 }
 
 exports.deleteManager = (req,res)=>{
-    Manager.findOneAndDelete({name:req.params.id},(err,manager)=>{
+    console.log("cameh erkjhkjhk");
+    console.log(req.params.id)
+    Manager.findOneAndDelete({_id:req.params.id},(err,manager)=>{
         if(err){
             console.log(err);
             return res.send("its ok to user");

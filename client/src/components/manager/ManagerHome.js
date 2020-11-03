@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 
 class ManagerHome extends Component{
-    
     render(){
         return (
             <>
