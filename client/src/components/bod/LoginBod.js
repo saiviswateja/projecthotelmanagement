@@ -9,6 +9,11 @@ class LoginManager extends Component{
             password:""
         }
     }
+    componentDidMount(){
+        if(localStorage.getItem("bod")){
+            window.location="/bod/home";
+        }
+    }
     loginBod(e){
         e.preventDefault();
         console.log("came here");

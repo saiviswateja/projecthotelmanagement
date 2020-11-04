@@ -47,12 +47,16 @@ class BodHome extends Component{
             }  
         })
         .then(response=>{
+            console.log("It came to save response");
             console.log(response.data);
-            const tempManagers = this.state.managers.push(response.data);
+            const tempManagers = this.state.managers.push(response.data.manager);
             console.log(tempManagers)
+            console.log(this.state.managers)
             this.setState({
                 managers:this.state.managers
             })
+            console.log("managers list after saing")
+            console.log(this.state.managers)
         })
         .catch(err=>{
             console.log(err);
@@ -79,7 +83,6 @@ class BodHome extends Component{
                     <tbody>
                     {
                         this.state.managers.map(manager=>{
-                            console.log(manager)
                         return <tr key={manager._id}>
                                 <th scope="col">{manager.name}</th>
                                 <th scope="col">{manager.email}</th>
@@ -125,16 +128,16 @@ class BodHome extends Component{
                             <b>By defalt every other field for the manager details will be "DEFAULT". This can be updated by the 
                             manager when he logged in first time</b>
                         </p>
-                        <form>
+                        <>
                             <div className="form-group">
                                 <label>Email Addreess to Add</label>
                                 <input type="email" className="form-control" id="email"></input>
                                 <small class="form-text text-muted">Please make sure this mail id is unique</small>
                             </div>
-                        </form>
+                        </>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                        {/* <a type="button" class="btn btn-secondary" data-dismiss="modal">cancel</a> */}
                         <button type="button" class="btn btn-primary" onClick={this.saveManager.bind(this)}>save</button>
                     </div>
                     </div>

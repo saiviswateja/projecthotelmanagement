@@ -9,6 +9,11 @@ class LoginManager extends Component{
             password:""
         }
     }
+    componentDidMount(){
+        if(localStorage.getItem("token") && localStorage.getItem("user")!=null){
+            window.location="/manager/home";
+        }
+    }
     loginBod(e){
         e.preventDefault();
         console.log("came here");
@@ -19,12 +24,12 @@ class LoginManager extends Component{
             password
         }
         console.log(credentials);
-        axios.post('http://localhost:8000/bod/login',credentials)
+        axios.post('http://localhost:8000/api/manager/signin',credentials)
         .then(response=>{
             if(response.data.token){
                 localStorage.setItem("token",response.data.token);
-                localStorage.setItem("bod",response.data.user);
-                window.location = "/"
+                localStorage.setItem("user",JSON.stringify(response.data.user));
+                window.location = "/manager/home"
             }
             console.log(response.data);
         })
@@ -40,6 +45,7 @@ class LoginManager extends Component{
             <br>
             </br>
             <div className="jumbotron">
+            <h1>Manager Login</h1>
             <form>
                 <div className="form-group">
                     <label>Email Address</label>
@@ -50,6 +56,9 @@ class LoginManager extends Component{
                     <input type="password" className="form-control" id="password"></input>
                 </div>
                 <button className="btn btn-primary" onClick={this.loginBod.bind(this)}>Submit</button>
+                <br>
+                </br>
+                <small><b>*If you are first time logging in your default passwor is shared to you email by the Board of director</b></small>
             </form>
             </div>
             </>

@@ -14,7 +14,7 @@ exports.addRoom = (req,res)=>{
                 error:"Error while saving the room"
             });
         }
-        return res.send("Room saved bro")  
+        return res.send(r)  
     })
 }
 
@@ -31,14 +31,13 @@ exports.getRooms = (req,res)=>{
 
 exports.deleteRoom = (req,res)=>{
     console.log("came to delete room");
-    Room.deleteOne({_id:req.params.id},(err,room)=>{
+    Room.findOneAndDelete({_id:req.params.id},(err,room)=>{
         if(err){
             return res.status(400).json({
                 error:"error occured while deteling the room"
             });
         }
-        return res.json({
-            message:"Room deleted successfully"
-        })
+        console.log(room)
+        return res.send(room)
     });
 }
