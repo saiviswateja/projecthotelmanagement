@@ -6,6 +6,7 @@ import LoginManager from './components/manager/LoginManager';
 import LoginBod from './components/bod/LoginBod';
 import ManagerHome from './components/manager/ManagerHome';
 import BodHome from './components/bod/BodHome';
+import UpdateManager from './components/manager/UpdateManager';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/bod/login"><LoginBod/></Route>
         <Route exact path="/manager/home"><ManagerHome/></Route>
         <Route exact path="/bod/home"><BodHome/></Route>
+        <Route exact path="/manager/update"><UpdateManager/></Route>
     </Switch>
     </BrowserRouter>    
   );

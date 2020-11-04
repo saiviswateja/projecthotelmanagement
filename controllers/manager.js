@@ -73,3 +73,19 @@ exports.getManagers = (req,res)=>{
         return res.send(managers);
     })
 }
+
+exports.updateManager = (req,res)=>{
+    console.log("the email id");
+    console.log(req.body.email);
+    Manager.findOneAndUpdate({email:req.body.email},req.body,(err,manager)=>{
+        if(err){
+            return res.status(400).json({
+                error:"no on eound with the specified email in the database"
+            });
+        }
+        console.log(manager);
+        if(manager)
+            return res.send(manager)
+        return res.send("Invalid credentials")
+    })
+}

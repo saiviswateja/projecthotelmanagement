@@ -45,6 +45,7 @@ class LoginManager extends Component{
             <br>
             </br>
             <div className="jumbotron">
+            <button className="btn btn-warning float-right">First Time Login</button>
             <h1>Manager Login</h1>
             <form>
                 <div className="form-group">
@@ -60,6 +61,7 @@ class LoginManager extends Component{
                 </br>
                 <small><b>*If you are first time logging in your default passwor is shared to you email by the Board of director</b></small>
             </form>
+            
             </div>
             </>
         );
