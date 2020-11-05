@@ -22,6 +22,8 @@ mongoose.connect("mongodb://localhost:27017/hotelmanagement",{useCreateIndex:tru
     console.log("mongo db connected");
 })
 
+// var connection = mongoose.createConnection("mongodb://localhost:27017/hotelmanagement");
+
 app.listen(8000,()=>{
     console.log("server running bro");
 });

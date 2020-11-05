@@ -1,6 +1,8 @@
 const  jwt  = require("jsonwebtoken");
 const BoardOfDirector = require("../models/BoardOfDirector");
 
+//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
+
 module.exports = (req,res,next)=>{
     console.log("It entered the middle ware");
     console.log(req.body);
