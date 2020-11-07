@@ -3,16 +3,6 @@ const Room = require('../models/Room');
 const Transaction = require('../models/Transaction');
 
 exports.bookRoom =(req,res)=>{
-    // const guest = new Guest({
-    //     "name": "viswa teja",
-    //     "mobileNumber": "949085",
-    //     "email": "teja@gmail.com",
-    //     "city": "anantapur",
-    //     "state": "AP",
-    //     "country": "India"
-    // });
-    // guest.save();
-    // return res.send("guest saved");
     Guest.findById({_id:"5fa438b9f3a8ba4c949bfb31"},(err,guest)=>{
         if(err){
             return res.send(err)
@@ -24,10 +14,6 @@ exports.bookRoom =(req,res)=>{
                     return res.send(err);
                 }
                 if(room){
-                    // return res.json({
-                    //     room:room,
-                    //     guest:guest
-                    // })
                     const transaction = new Transaction({
                         guestDetails:guest,
                         rooms:[room],

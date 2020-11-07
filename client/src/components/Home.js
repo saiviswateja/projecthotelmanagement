@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import GuestBook from './Guest/GuestBook';
 
 
 class Home extends Component{
@@ -17,6 +19,7 @@ class Home extends Component{
                         rooms:response.data
                     },()=>{
                         console.log(this.state.rooms);
+                        localStorage.setItem("rooms",JSON.stringify(this.state.rooms));
                     })
                 })
     }
@@ -50,7 +53,7 @@ class Home extends Component{
                         })
                     }
                 </table>
-                <button className="btn btn-primary">Book Rooms</button>
+                <Link to="/guest/book"><button className="btn btn-primary">Book Rooms</button></Link>
             </div>
         );
     }
